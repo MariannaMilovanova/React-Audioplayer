@@ -1,20 +1,21 @@
 import React, { Component } from 'react';
 import ReactAudioPlayer from 'react-audio-player';
+import { PlayButton, Timer } from 'react-soundplayer/components';
+import { withCustomAudio } from 'react-soundplayer/addons';
 
-const playlist = [
-    {url: '../music/06_-_Jailhouse_Rock.mp3', artist: {name: 'Metallica2', song: 'Fuel1'}}
-]
+// audio source
+const streamUrl = 'https://s3-eu-west-1.amazonaws.com/react-soundplayer-examples/ksmtk-reborn-edit.mp3';
 
-class AudioPlayer extends Component {
+const AWSSoundPlayer = withCustomAudio(props => {
 
-    render() {
-        return (
-          <ReactAudioPlayer
-              src="src/music/06_-_Jailhouse_Rock.mp3"
-              controls
-        />
-        );
-    }
-}
+const { trackTitle } = props;
+  return (
+    <div>
+      <PlayButton {...props} />
+      <h2>TrackTitle</h2>
+      <Timer {...props} />
+    </div>
+  );
+});
 
-export default AudioPlayer;
+export default AWSSoundPlayer;
