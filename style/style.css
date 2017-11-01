@@ -1,3 +1,41 @@
 .react-audio-player {
     width: 100%;
 }
+.track-duration {
+    position: absolute;
+    right: 15px;
+}
+.sb-soundplayer-btn {
+    width: 50px;
+    height: 40px;
+    margin-top: 22px;
+    margin-right: 20px;
+}
+.player {
+    display: flex;
+    position: relative;
+}
+.progress {
+    margin-top: 40px;
+    background-color: white;
+    border: 1px solid rgba(0,0,0,.1);
+    height: 22px !important;
+    width: 100%;
+    border-radius: .28571429rem;; 
+}
+.bar{
+    background-color: #efbc72;
+    height: 20px;
+}
+.timer {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+}
+.player-track-title {
+    position: absolute;
+    left: 70px;
+    top: 5px;
+    font-size: 20px;
+    color: blue;
+}
