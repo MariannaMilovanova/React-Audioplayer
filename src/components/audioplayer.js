@@ -52,7 +52,7 @@ class AudioPlayer extends Component {
                 />
                 <Timer className='timer' duration={this.state.duration} currentTime={this.state.currentTime}/>
                 <div className="progress">
-                    <div className="bar" style={{width: `${this.state.currentTime*100/this.state.duration || 0}`}}></div>
+                    <div className="bar" style={{width: `${this.state.currentTime*100/this.state.duration || 0}%`}}></div>
                 </div>
             </div>
         );
