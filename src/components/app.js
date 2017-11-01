@@ -8,20 +8,11 @@ import AudioList from './audioList';
 class App extends Component {
     componentDidMount(){
         this.props.fetchMusic();
-    }
-    componentWillReciveProps(nextProps) {
-        if (this.props.track!=nextProps.track) {
-            this.forceUpdate();
-        }
     }   
     render() {
-        if (!this.props.track) {
-            return <div>Loading...</div>
-        }
-        const streamUrl = this.props.track.track_listen_url;
         return (
             <div>
-                { this.props.track && <AudioPlayer  streamUrl = {streamUrl} track={this.props.track}/> }
+                <AudioPlayer track={this.props.track} nextTrack={this.props.nextTrack}/>
                 <AudioList music={this.props.music} chooseTrack={this.props.chooseTrack}/>
             </div>
         );
@@ -29,7 +20,7 @@ class App extends Component {
 }
 
 function  mapStateToProps(state) {
-  return { music: state.music, track: state.music.track  }
+  return { music: state.music, track: state.music.track, nextTrack: state.music.nextTrack }
 
 }
 export default connect(mapStateToProps, { fetchMusic, chooseTrack })(App);

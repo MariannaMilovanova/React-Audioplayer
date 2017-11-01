@@ -6,11 +6,7 @@ class AudioList extends Component {
     handleClick(track) {
         this.props.chooseTrack(track)
     }
-    componentWillReciveProps(nextProps) {
-        if (this.props.track!=nextProps.track) {
-            this.forceUpdate();
-        }
-    }
+
     renderMusic() {
         return _.map(this.props.music.music, item => {
           return (
@@ -23,7 +19,6 @@ class AudioList extends Component {
         })
       }
     render() {
-        console.log(this.props.music.music)
         return (
           <div>
             <h3>Tracks</h3>
