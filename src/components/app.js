@@ -9,12 +9,19 @@ class App extends Component {
     componentDidMount(){
         this.props.fetchMusic();
     }
+    componentWillReciveProps(nextProps) {
+        if (this.props.track!=nextProps.track) {
+            this.forceUpdate();
+        }
+    }   
     render() {
-        const streamUrl = this.props.track || 'https://freemusicarchive.org/music/listen/00abd02b66d8cab168bee1d464c811e43667d1ff';
-        console.log(this.props.track)
+        if (!this.props.track) {
+            return <div>Loading...</div>
+        }
+        const streamUrl = this.props.track.track_listen_url;
         return (
             <div>
-                <AudioPlayer streamUrl={streamUrl} />
+                { this.props.track && <AudioPlayer  streamUrl = {streamUrl} track={this.props.track}/> }
                 <AudioList music={this.props.music} chooseTrack={this.props.chooseTrack}/>
             </div>
         );
